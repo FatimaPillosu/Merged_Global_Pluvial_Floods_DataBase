@@ -4,9 +4,9 @@ This Jupyter notebook runs the Matlab Toolbox "MGFFD" created to merge flash flo
 There are two ways to run this Jupyter notebook:
 1. On a web brower, click on the toggle "launch binder".
 2. On your own machine, run the following commands:
+
 ```sh
-$ cd $WorkDir # Working directory where the repository will be cloned
 $ git clone https://github.com/FatimaPillosu/Merged-Global-Flash-Flood-DB.git
 $ cd Merged-Global-Flash-Flood-DB
-$ ./Launch_Jupyter_Matlab.sh $MatlabRoot #it can be determined by running the command 'matlabroot' in the Matlab command line
+$ ./Launch_Jupyter_Matlab.sh $MatlabRoot # It can be determined by running the command 'matlabroot' in the Matlab command line
 ```
