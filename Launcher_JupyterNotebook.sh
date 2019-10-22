@@ -9,16 +9,9 @@
 # Note: this tutorial has been successfully tested for Matlab R2019b. Finally, check that the installed version of Anaconda supports Python 2.7, 3.6, or 3.7 as Matlab R2019b interfaces only with such Python versions.
 
 # INPUTS
-MatlabRoot=$1
-WorkDir=$2
+MatlabRoot_Dir="$1"
+JupyterNotebook_Dir=$(pwd)
 
-
-# ----------------------- #
-# Setting Input Variables #
-# ----------------------- #
-
-Matlab_Dir="$MatlabRoot/MATLAB/R2019b"
-JupyterNotebook_Dir="$WorkDir/Jupyter_Projects/Merged_Global_FlashFlood_DB"
 
 # ---------------------------------- #
 # Python-side Notebook Configuration #
@@ -26,7 +19,7 @@ JupyterNotebook_Dir="$WorkDir/Jupyter_Projects/Merged_Global_FlashFlood_DB"
 
 # Create a Conda virtual environment to interface Matlab with Python
 conda create -vv -n jmatlab python=3.7 jupyter
-source activate jmatlab
+conda activate jmatlab
 
 # Install the Matlab Kernel for Jupyter Notebooks
 pip install --upgrade pip
@@ -39,7 +32,7 @@ python -m matlab_kernel install --user
 # ---------------------------------- #
 
 # Install the Matlab Engine API for Python
-cd $Matlab_Dir/extern/engines/python
+cd $MatlabRoot_Dir/extern/engines/python/
 python setup.py install
 
 echo " "
