@@ -8,5 +8,5 @@ There are two ways to run this Jupyter notebook:
 ```sh
 $ git clone https://github.com/FatimaPillosu/Merged-Global-Flash-Flood-DB.git
 $ cd Merged-Global-Flash-Flood-DB
-$ ./Launch_Jupyter_Matlab.sh $MatlabRoot # It can be determined by running the command 'matlabroot' in the Matlab command line
+$ ./Launch_Jupyter_Matlab.sh $MatlabRoot # Merged_Global_FlashFlood_DB.ipynb can be determined by running the command 'matlabroot' in the Matlab command line
 ```
