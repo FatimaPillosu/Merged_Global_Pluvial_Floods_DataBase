@@ -1,0 +1,779 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>MGFFD</title><meta name="generator" content="MATLAB 9.7"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-11-11"><meta name="DC.source" content="MGFFD.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">CLEAN THE WORKSPACE AND THE COMMAND WINDOW</a></li><li><a href="#3">USER'S INPUTS</a></li><li><a href="#4">IMPORTANT NOTE</a></li><li><a href="#5">PATHS SETUP</a></li><li><a href="#6">MERGED DATABASE SETUP</a></li><li><a href="#7">DISPLAY ON SCREEN TOOLBOX GENERAL INFORMATION AND USER'S INPUTS</a></li><li><a href="#8">RAW DATABASES PRE-PROCESSING</a></li><li><a href="#9">LOAD THE CPC UNIFIED GAUGE-BASED ANALYSIS OF GLOBAL DAILY PRECIPITATION</a></li></ul></div><pre class="codeinput">          <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+          <span class="comment">%                                                      %</span>
+          <span class="comment">%                    MATLAB TOOLBOX                    %</span>
+          <span class="comment">%   MERGED GLOBAL FLASH FLOOD DATABASE - VERSION 1.0   %</span>
+          <span class="comment">%                                                      %</span>
+          <span class="comment">%                     developed by                     %</span>
+          <span class="comment">%      Fatima Pillosu (Reading University &amp; ECMWF)     %</span>
+          <span class="comment">%                                                      %</span>
+          <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+<span class="comment">% The objective of this toolbox is to collect data from different sources</span>
+<span class="comment">% on flash flood occurrences around the world due to heavy rainfall, and</span>
+<span class="comment">% merged such information in one single global flash flood database. The</span>
+<span class="comment">% merging operation undertaken in this toolbox is not a mere blending of</span>
+<span class="comment">% raw data from different sources, but it uses data wrangling to ehnhance</span>
+<span class="comment">% the usability of such raw datasets in understanding the capability of</span>
+<span class="comment">% current rainfall forecasting systems in predicting the likelihood of</span>
+<span class="comment">% having a flash flood on a particular location.</span>
+
+<span class="comment">% The code can be downloaded, run interactively on a web browser, or cited</span>
+<span class="comment">% from the following GitHub repository:</span>
+<span class="comment">% https://github.com/FatimaPillosu/Merged-Global-Flash-Flood-DB</span>
+</pre><h2 id="2">CLEAN THE WORKSPACE AND THE COMMAND WINDOW</h2><pre class="codeinput">clear
+clc
+</pre><h2 id="3">USER'S INPUTS</h2><p>Users are asked to enter some input parameters needed to run the toolbox. Therefore, users may change the values of the input parameters in the "INPUTS" section according to their description in "DEFINITIONS".</p><pre class="codeinput"><span class="comment">% DEFINITIONS</span>
+<span class="comment">% DateS (string): analysis period start date, in YYYY-MM-DD format.</span>
+<span class="comment">% DateF (string): analysis period final date, in YYYY-MM-DD format.</span>
+<span class="comment">% RawDBs (cell of chars): raw databases imported to be merged.</span>
+<span class="comment">%                         List of databases that can be currently imported:</span>
+<span class="comment">%                            - 'FL': FloodList;</span>
+<span class="comment">%                            - 'EMDAT': Emergency Events Database;</span>
+<span class="comment">%                            - 'ESWD': European Severe Weather Database;</span>
+<span class="comment">%                            - 'SED': Storm Event Database.</span>
+
+<span class="comment">% INPUTS</span>
+DateS = <span class="string">"2016-04-01"</span>;
+DateF = <span class="string">"2017-03-31"</span>;
+RawDBs = {<span class="string">'FL'</span>,<span class="string">'EMDAT'</span>,<span class="string">'ESWD'</span>,<span class="string">'SED'</span>};
+</pre><h2 id="4">IMPORTANT NOTE</h2><p>Users must not modify the code from now on to avoid triggering malfunctions in the toolbox.</p><h2 id="5">PATHS SETUP</h2><pre class="codeinput"><span class="comment">% Working Directory</span>
+<span class="comment">% It coincides with the directory created by cloning the Github repository</span>
+WorkDir = pwd;
+
+<span class="comment">% Raw Databases</span>
+RawDBs_Dir = strcat(WorkDir, <span class="string">'/RawDBs'</span>);
+
+<span class="comment">% CPC Unified Gauge-Based Analysis of Global Daily Precipitation</span>
+CPC_Dir = strcat(WorkDir, <span class="string">'/CPC_GLOBAL_PRCP_V1.0'</span>);
+</pre><h2 id="6">MERGED DATABASE SETUP</h2><pre class="codeinput"><span class="comment">% Attributes' Names</span>
+FinalAtt = {<span class="string">'OrigSource'</span>, <span class="string">'OrigSourceID'</span>, <span class="string">'OrigReportQuality'</span>, <span class="string">'Event_DateS'</span>, <span class="string">'Event_DateF'</span>, <span class="string">'Event_TimeS'</span>, <span class="string">'Event_TimeF'</span>, <span class="string">'Continent'</span>, <span class="string">'Country'</span>, <span class="string">'Location'</span>, <span class="string">'Latitude'</span>, <span class="string">'Longitude'</span>, <span class="string">'EventType_CoastalFlood'</span>, <span class="string">'EventType_FlashFlood'</span>, <span class="string">'EventType_InlandFlood'</span>, <span class="string">'EventType_TypeRiverFlood'</span>, <span class="string">'EventType_TypeStormSurge'</span>, <span class="string">'EventType_TypeUnknown'</span>, <span class="string">'EventType_TypeLandslide'</span>, <span class="string">'EventCause_DamBreak'</span>, <span class="string">'EventCause_ExtremeRainfall'</span>, <span class="string">'EventCause_IceJam'</span>, <span class="string">'EventCause_HighTide'</span>, <span class="string">'EventCause_LongTermRainfall'</span>, <span class="string">'EventCause_ReservoirRelease'</span>, <span class="string">'EventCause_Snowmelt'</span>, <span class="string">'EventCause_SoilSaturation'</span>, <span class="string">'EventCause_StormSurge'</span>, <span class="string">'EventCause_Tsunami'</span>, <span class="string">'Rainfall_Magnitude'</span>, <span class="string">'CPC_Rainfall'</span>, <span class="string">'ReportQuality'</span>};
+
+<span class="comment">% Attributes' Types</span>
+FinalAttType = {<span class="string">'cell'</span>, <span class="string">'double'</span>, <span class="string">'double'</span>, <span class="string">'cell'</span>, <span class="string">'cell'</span>, <span class="string">'double'</span>, <span class="string">'double'</span>, <span class="string">'cell'</span>, <span class="string">'cell'</span>, <span class="string">'cell'</span>, <span class="string">'double'</span>, <span class="string">'double'</span>, <span class="string">'categorical'</span>, <span class="string">'categorical'</span>, <span class="string">'categorical'</span>, <span class="string">'categorical'</span>, <span class="string">'categorical'</span>, <span class="string">'categorical'</span>, <span class="string">'categorical'</span>, <span class="string">'categorical'</span>, <span class="string">'categorical'</span>, <span class="string">'categorical'</span>, <span class="string">'categorical'</span>, <span class="string">'categorical'</span>, <span class="string">'categorical'</span>, <span class="string">'categorical'</span>, <span class="string">'categorical'</span>, <span class="string">'categorical'</span>, <span class="string">'categorical'</span>, <span class="string">'double'</span>, <span class="string">'double'</span>, <span class="string">'double'</span>};
+</pre><h2 id="7">DISPLAY ON SCREEN TOOLBOX GENERAL INFORMATION AND USER'S INPUTS</h2><pre class="codeinput">disp(<span class="string">"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"</span>)
+disp(<span class="string">"%                                                      %"</span>)
+disp(<span class="string">"%                    MATLAB TOOLBOX                    %"</span>)
+disp(<span class="string">"%   MERGED GLOBAL FLASH FLOOD DATABASE - VERSION 1.0   %"</span>)
+disp(<span class="string">"%                                                      %"</span>)
+disp(<span class="string">"%                     developed by                     %"</span>)
+disp(<span class="string">"%      Fatima Pillosu (Reading University &amp; ECMWF)     %"</span>)
+disp(<span class="string">"%                                                      %"</span>)
+disp(<span class="string">"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"</span>)
+
+disp(<span class="string">" "</span>)
+disp(<span class="string">"The objective of this toolbox is to collect data from different sources"</span>)
+disp(<span class="string">"on flash flood occurrences around the world due to heavy rainfall, and"</span>)
+disp(<span class="string">"merged such information in one single global flash flood database. The"</span>)
+disp(<span class="string">"merging operation undertaken in this toolbox is not a mere blending of"</span>)
+disp(<span class="string">"raw data from different sources, but it uses data wrangling to ehnhance"</span>)
+disp(<span class="string">"the usability of such raw datasets in understanding the capability of"</span>)
+disp(<span class="string">"current rainfall forecasting systems in predicting the likelihood of"</span>)
+disp(<span class="string">"having a flash flood on a particular location."</span>)
+
+disp(<span class="string">" "</span>)
+disp(<span class="string">"The code can be downloaded, run interactively on a web browser, or cited from the following GitHub repository:"</span>)
+disp(<span class="string">"https://github.com/FatimaPillosu/Merged-Global-Flash-Flood-DB"</span>)
+
+disp(<span class="string">" "</span>)
+disp(<span class="string">"*** USER'S INPUTS ***"</span>)
+disp(<span class="string">" - Analysis Period: "</span>)
+disp(strcat(<span class="string">"    from "</span>, DateS, <span class="string">" to "</span>, DateF))
+disp(<span class="string">" - Raw Databases: "</span>)
+disp(RawDBs)
+
+disp(<span class="string">"*** TOOLBOX DIRECTORIES ***"</span>)
+disp(<span class="string">" - Working directory: "</span>)
+disp(strcat(<span class="string">"    "</span>, WorkDir))
+disp(<span class="string">" - Raw databases: "</span>)
+disp(strcat(<span class="string">"    "</span>, RawDBs_Dir))
+disp(<span class="string">" - CPC unified gauge-based analysis of global daily precipitation: "</span>)
+disp(strcat(<span class="string">"    "</span>, CPC_Dir))
+
+disp(<span class="string">" "</span>)
+disp(<span class="string">"*** MERGED GLOBAL FLASH FLOOD DATABASE ***"</span>)
+disp(<span class="string">" - Attributes: "</span>)
+<span class="keyword">for</span> i = 1 : length(FinalAtt)
+    disp(strcat(<span class="string">"    "</span>, FinalAtt{i}))
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                      %
+%                    MATLAB TOOLBOX                    %
+%   MERGED GLOBAL FLASH FLOOD DATABASE - VERSION 1.0   %
+%                                                      %
+%                     developed by                     %
+%      Fatima Pillosu (Reading University &amp; ECMWF)     %
+%                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+The objective of this toolbox is to collect data from different sources
+on flash flood occurrences around the world due to heavy rainfall, and
+merged such information in one single global flash flood database. The
+merging operation undertaken in this toolbox is not a mere blending of
+raw data from different sources, but it uses data wrangling to ehnhance
+the usability of such raw datasets in understanding the capability of
+current rainfall forecasting systems in predicting the likelihood of
+having a flash flood on a particular location.
+ 
+The code can be downloaded, run interactively on a web browser, or cited from the following GitHub repository:
+https://github.com/FatimaPillosu/Merged-Global-Flash-Flood-DB
+ 
+*** USER'S INPUTS ***
+ - Analysis Period: 
+    from 2016-04-01 to 2017-03-31
+ - Raw Databases: 
+    'FL'    'EMDAT'    'ESWD'    'SED'
+
+*** TOOLBOX DIRECTORIES ***
+ - Working directory: 
+    /home/fatimapillosu/Jupyter_Projects/Merged-Global-Flash-Flood-DB
+ - Raw databases: 
+    /home/fatimapillosu/Jupyter_Projects/Merged-Global-Flash-Flood-DB/RawDBs
+ - CPC unified gauge-based analysis of global daily precipitation: 
+    /home/fatimapillosu/Jupyter_Projects/Merged-Global-Flash-Flood-DB/CPC_GLOBAL_PRCP_V1.0
+ 
+*** MERGED GLOBAL FLASH FLOOD DATABASE ***
+ - Attributes: 
+    OrigSource
+    OrigSourceID
+    OrigReportQuality
+    Event_DateS
+    Event_DateF
+    Event_TimeS
+    Event_TimeF
+    Continent
+    Country
+    Location
+    Latitude
+    Longitude
+    EventType_CoastalFlood
+    EventType_FlashFlood
+    EventType_InlandFlood
+    EventType_TypeRiverFlood
+    EventType_TypeStormSurge
+    EventType_TypeUnknown
+    EventType_TypeLandslide
+    EventCause_DamBreak
+    EventCause_ExtremeRainfall
+    EventCause_IceJam
+    EventCause_HighTide
+    EventCause_LongTermRainfall
+    EventCause_ReservoirRelease
+    EventCause_Snowmelt
+    EventCause_SoilSaturation
+    EventCause_StormSurge
+    EventCause_Tsunami
+    Rainfall_Magnitude
+    CPC_Rainfall
+    ReportQuality
+</pre><h2 id="8">RAW DATABASES PRE-PROCESSING</h2><pre class="codeinput">disp(<span class="string">" "</span>)
+disp(<span class="string">" "</span>)
+disp(<span class="string">"****************************"</span>)
+disp(<span class="string">"PRE-PROCESSING RAW DATABASES"</span>)
+disp(<span class="string">"****************************"</span>)
+
+Num_RawDBs = length(RawDBs);
+ind_RawDB = 1;
+
+
+NameRawDB = RawDBs{ind_RawDB};
+disp(<span class="string">" "</span>)
+disp(strcat(<span class="string">"*** PRE-PROCESSING '"</span>, NameRawDB, <span class="string">"' RAW DATABASE ***"</span>))
+
+<span class="comment">% Setting database-specific variables</span>
+<span class="keyword">switch</span> NameRawDB
+    <span class="keyword">case</span> <span class="string">'FL'</span>
+        <span class="comment">% Attributes that one is certain wants to delete</span>
+        Att4Del = {<span class="string">'identifier'</span>,<span class="string">'web'</span>, <span class="string">'CauseUnknown'</span>, <span class="string">'affected_quantitative'</span>, <span class="string">'agriculture_quantitative'</span>, <span class="string">'communications_quantitative'</span>, <span class="string">'cultural_heritage_quantitative'</span>, <span class="string">'death_quantitative'</span>, <span class="string">'education_quantitative'</span>, <span class="string">'environment_description'</span>, <span class="string">'environment_quantitative'</span>, <span class="string">'evacuated_quantitative'</span>, <span class="string">'forest_quantitative'</span>, <span class="string">'health_sector_quantitative'</span>, <span class="string">'heritage_quantitative'</span>, <span class="string">'houses_damaged_quantitative'</span>, <span class="string">'houses_destroyed_quantitative'</span>, <span class="string">'industry_quantitative'</span>, <span class="string">'injured_quantitative'</span>, <span class="string">'missing_quantitative'</span>, <span class="string">'roads_quantitative'</span>, <span class="string">'spatial_extent_quantitative'</span>, <span class="string">'transport_quantitative'</span>};
+        <span class="comment">% Attributes that store lat/lon values</span>
+        LatLon_Att = {<span class="string">'latitude'</span>,<span class="string">'longitude'</span>};
+        <span class="comment">% Max tollerance (in percent) of missing values per attribute</span>
+        MissTol = 50;
+    <span class="keyword">otherwise</span>
+        error(<span class="string">"Not valid raw database name."</span>)
+<span class="keyword">end</span>
+
+
+<span class="comment">%%%%%%%%%%%%%%%%%%%%%% Importing the raw csv file(s) %%%%%%%%%%%%%%%%%%%%%%</span>
+
+disp(<span class="string">" "</span>)
+disp(<span class="string">"Step n.1 - Loading the raw data (if more files need to be loaded, they are automatically merged into one single table)"</span>)
+RawDB_Dir_temp = strcat(RawDBs_Dir, <span class="string">'/'</span>, NameRawDB, <span class="string">'/Original'</span>);
+RawDB_temp = dir(RawDB_Dir_temp);
+[m,~] = size(RawDB_temp);
+<span class="keyword">if</span> m &lt; 3
+    disp(<span class="string">"No files to import."</span>)
+<span class="keyword">else</span>
+    TotRawDB_temp = []; <span class="comment">% if the data is split in more files, they are merged in one variable</span>
+    <span class="keyword">for</span> j = 3 : m
+        RawDB_Name_temp = RawDB_temp(j).name;
+        RawDB_File_temp = strcat(RawDB_Dir_temp, <span class="string">'/'</span>, RawDB_Name_temp);
+        disp(strcat(<span class="string">" - Importing "</span>, RawDB_File_temp))
+        test = load_EMDAT(RawDB_File_temp);
+        TotRawDB_temp = [TotRawDB_temp; load_EMDAT(RawDB_File_temp)];
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+[m,n] = size(TotRawDB_temp);
+VarNames = TotRawDB_temp.Properties.VariableNames;
+
+disp(<span class="string">" "</span>)
+disp(<span class="string">"Step n.2 - Display some general information about the raw database"</span>)
+disp(strcat(<span class="string">" - Number of total instances (rows): "</span>, num2str(m)))
+disp(strcat(<span class="string">" - Number of attributes (columns): "</span>, num2str(n)))
+disp(<span class="string">" - Raw Database preview:"</span>)
+disp(<span class="string">" "</span>)
+disp(head(TotRawDB_temp,5))
+
+
+<span class="comment">%%%%%%%%%%%%%%%%%%%%%%%% Cleaning the raw csv file %%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+<span class="comment">% Cleaning from attributes that might not be useful in the merged database</span>
+disp(<span class="string">" "</span>)
+disp(<span class="string">"Step n.3 - Attributes to delete because not useful in the final merged database"</span>)
+<span class="keyword">for</span> i = 1 : length(Att4Del)
+    disp(strcat(<span class="string">" - "</span>, Att4Del{i}))
+    TotRawDB_temp(:,Att4Del{i}) = [];
+<span class="keyword">end</span>
+[m,n] = size(TotRawDB_temp);
+VarNames = TotRawDB_temp.Properties.VariableNames;
+
+<span class="comment">% Cleaning from attributes that contain too many missing values</span>
+disp(<span class="string">" "</span>)
+disp(strcat(<span class="string">"Step n.4 - Attributes candidate for deletion as contain more than "</span>, num2str(MissTol), <span class="string">"% of missing values"</span>))
+Missing2Del = {};
+<span class="keyword">for</span> i = 1 : n
+    temp = TotRawDB_temp(:,i);
+    missing_temp = sum(ismissing(temp));
+    perc_missing = missing_temp/m*100;
+    <span class="keyword">if</span> perc_missing &gt;= MissTol
+        disp(strcat(<span class="string">" - "</span>, VarNames{i}))
+        Missing2Del = [Missing2Del, VarNames{i}];
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> isempty(Missing2Del)
+    disp(<span class="string">" - No other attributes candidate for deletion."</span>)
+<span class="keyword">else</span>
+    <span class="comment">% Check that lat/lon attributes are not in the list of candidates for deletion</span>
+    <span class="keyword">if</span> sum(strcmp(VarNames,LatLon_Att{1}))==1 || sum(strcmp(VarNames,LatLon_Att{2}))==1
+        disp(<span class="string">" - 'Latitude' and 'Longitude' attributes will not be deleted."</span>)
+        Missing2Del(Missing2Del == LatLon_Att{1}) = [];
+        Missing2Del(Missing2Del == LatLon_Att{2}) = [];
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+disp(<span class="string">" "</span>)
+disp(head(TotRawDB_temp,5))
+
+
+<span class="comment">%%%%%%%%%%%%%%%%%%%%%% Transforming the raw csv file %%%%%%%%%%%%%%%%%%%%%%</span>
+
+<span class="comment">% Create the template for the final merged database</span>
+NumAtt = length(FinalAtt);
+MergedDB = table(<span class="string">'Size'</span>, [m,NumAtt], <span class="string">'VariableTypes'</span>, FinalAttType, <span class="string">'VariableNames'</span>, FinalAtt);
+
+<span class="comment">% 1st attribute</span>
+MergedDB(:,1) = array2table(repmat({NameRawDB},m,1));
+
+<span class="comment">% 2nd attribute</span>
+MergedDB(:,2) = TotRawDB_temp(:,<span class="string">'source_id'</span>);
+
+<span class="comment">% 3rd attribute</span>
+MergedDB(:,3) = array2table(nan(m,1));
+
+<span class="comment">% 8th-32nd attribute</span>
+MergedDB(:,8) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,9) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,10) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,11) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,12) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,13) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,14) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,15) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,16) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,17) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,18) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,19) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,20) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,21) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,23) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,24) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,25) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,26) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,27) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,28) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,29) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,30) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,31) = TotRawDB_temp(:,<span class="string">'country'</span>);
+MergedDB(:,32) = TotRawDB_temp(:,<span class="string">'country'</span>);
+</pre><pre class="codeoutput"> 
+ 
+****************************
+PRE-PROCESSING RAW DATABASES
+****************************
+ 
+*** PRE-PROCESSING 'FL' RAW DATABASE ***
+ 
+Step n.1 - Loading the raw data (if more files need to be loaded, they are automatically merged into one single table)
+ - Importing /home/fatimapillosu/Jupyter_Projects/Merged-Global-Flash-Flood-DB/RawDBs/FL/Original/floodlist_events_yr2016.csv
+ - Importing /home/fatimapillosu/Jupyter_Projects/Merged-Global-Flash-Flood-DB/RawDBs/FL/Original/floodlist_events_yr2017.csv
+ 
+Step n.2 - Display some general information about the raw database
+ - Number of total instances (rows): 1798
+ - Number of attributes (columns): 50
+ - Raw Database preview:
+ 
+    identifier    source_id      source                                                    web                                                          onset                   expires              location_name           country       continent    latitude    longitude    TypeCoastalFlood    TypeFlashFlood    TypeInlandFlood    TypeRiverFlood    TypeStormSurge    TypeUnknown    TypeLandslide    CauseDamBreak    CauseExtremeRainfall    CauseIceJam    CauseHighTide    CauseLongTermRainfall    CauseReservoirRelease    CauseSnowmelt    CauseSoilSaturation    CauseStormSurge    CauseTsunami    CauseUnknown    affected_quantitative    agriculture_quantitative    communications_quantitative    cultural_heritage_quantitative    death_quantitative    education_quantitative    environment_description    environment_quantitative           evacuated_quantitative           forest_quantitative    health_sector_quantitative    heritage_quantitative    houses_damaged_quantitative    houses_destroyed_quantitative    industry_quantitative    injured_quantitative                                                  magnitude_description                                                       missing_quantitative          roads_quantitative    spatial_extent_quantitative    transport_quantitative
+    __________    _________    ___________    ______________________________________________________________________________________________    _____________________    _____________________    ____________________    _____________    _________    ________    _________    ________________    ______________    _______________    ______________    ______________    ___________    _____________    _____________    ____________________    ___________    _____________    _____________________    _____________________    _____________    ___________________    _______________    ____________    ____________    _____________________    ________________________    ___________________________    ______________________________    __________________    ______________________    _______________________    ________________________    ____________________________________    ___________________    __________________________    _____________________    ___________________________    _____________________________    _____________________    ____________________    _________________________________________________________________________________________________________________    _______________________________    __________________    ___________________________    ______________________
+
+        1           18172      "FloodList"    "http://floodlist.com/asia/philippines-nasa-maps-typhoon-nock-tens-rainfall"                      "2016-12-25T00:00:00"    "2016-12-28T00:00:00"    "Occidental Mindoro"    "Philippines"    "Asia"        13.102      120.77            "N"                "N"                "N"               "N"               "N"              "Y"             "N"              "N"                 "Y"                 "N"             "N"                  "N"                      "N"                  "N"                 "N"                  "N"              "N"             "N"               &lt;missing&gt;                 &lt;missing&gt;                     &lt;missing&gt;                       &lt;missing&gt;                   &lt;missing&gt;               &lt;missing&gt;                  &lt;missing&gt;                  &lt;missing&gt;            "Unknown location - 127012.0 people"         &lt;missing&gt;                 &lt;missing&gt;                   &lt;missing&gt;                   &lt;missing&gt;                       &lt;missing&gt;                    &lt;missing&gt;               &lt;missing&gt;          "Calapan, Oriental Mindoro - rainfall = 110.4 mm in 24 hours; Calayan, Cagayan - rainfall = 119.8 mm in 24 hours"    &lt;missing&gt;                              &lt;missing&gt;                  &lt;missing&gt;                   &lt;missing&gt;       
+        2           18172      "FloodList"    "http://floodlist.com/asia/philippines-nasa-maps-typhoon-nock-tens-rainfall"                      "2016-12-25T00:00:00"    "2016-12-28T00:00:00"    "Albay province"        "Philippines"    "Asia"        13.177      123.53            "N"                "N"                "N"               "N"               "N"              "Y"             "N"              "N"                 "Y"                 "N"             "N"                  "N"                      "N"                  "N"                 "N"                  "N"              "N"             "N"               &lt;missing&gt;                 &lt;missing&gt;                     &lt;missing&gt;                       &lt;missing&gt;                   &lt;missing&gt;               &lt;missing&gt;                  &lt;missing&gt;                  &lt;missing&gt;            "Unknown location - 127012.0 people"         &lt;missing&gt;                 &lt;missing&gt;                   &lt;missing&gt;                   &lt;missing&gt;                       &lt;missing&gt;                    &lt;missing&gt;               &lt;missing&gt;          "Calapan, Oriental Mindoro - rainfall = 110.4 mm in 24 hours; Calayan, Cagayan - rainfall = 119.8 mm in 24 hours"    &lt;missing&gt;                              &lt;missing&gt;                  &lt;missing&gt;                   &lt;missing&gt;       
+        3           18166      "FloodList"    "http://floodlist.com/australia/record-breaking-rain-causes-floods-uluru-northern-territories"    "2016-12-25T00:00:00"    "2016-12-28T00:00:00"    "Kintore"               "Australia"      "Oceania"    -23.276      129.39            "N"                "N"                "Y"               "N"               "N"              "N"             "N"              "N"                 "Y"                 "N"             "N"                  "N"                      "N"                  "N"                 "N"                  "N"              "N"             "N"               &lt;missing&gt;                 &lt;missing&gt;                     &lt;missing&gt;                       &lt;missing&gt;                   &lt;missing&gt;               &lt;missing&gt;                  &lt;missing&gt;                  &lt;missing&gt;            "Kintore - 96.0 people"                      &lt;missing&gt;                 &lt;missing&gt;                   &lt;missing&gt;                   &lt;missing&gt;                       &lt;missing&gt;                    &lt;missing&gt;               &lt;missing&gt;          "Walungurru district - rainfall = 231.6 mm in 24 hours"                                                              "Unknown location - 8.0 people"        &lt;missing&gt;                  &lt;missing&gt;                   &lt;missing&gt;       
+        4           18166      "FloodList"    "http://floodlist.com/australia/record-breaking-rain-causes-floods-uluru-northern-territories"    "2016-12-25T00:00:00"    "2016-12-28T00:00:00"    "Uluru"                 "Australia"      "Oceania"    -25.344      131.03            "N"                "N"                "Y"               "N"               "N"              "N"             "N"              "N"                 "Y"                 "N"             "N"                  "N"                      "N"                  "N"                 "N"                  "N"              "N"             "N"               &lt;missing&gt;                 &lt;missing&gt;                     &lt;missing&gt;                       &lt;missing&gt;                   &lt;missing&gt;               &lt;missing&gt;                  &lt;missing&gt;                  &lt;missing&gt;            "Kintore - 96.0 people"                      &lt;missing&gt;                 &lt;missing&gt;                   &lt;missing&gt;                   &lt;missing&gt;                       &lt;missing&gt;                    &lt;missing&gt;               &lt;missing&gt;          "Walungurru district - rainfall = 231.6 mm in 24 hours"                                                              "Unknown location - 8.0 people"        &lt;missing&gt;                  &lt;missing&gt;                   &lt;missing&gt;       
+        5           18164      "FloodList"    "http://floodlist.com/asia/indonesia-floods-bima-west-nusa-tenggara"                              "2016-12-21T00:00:00"    "2016-12-26T00:00:00"    "East Rasanae"          "Indonesia"      "Asia"       -8.4884      118.82            "N"                "N"                "N"               "Y"               "N"              "N"             "N"              "N"                 "N"                 "N"             "N"                  "Y"                      "N"                  "N"                 "N"                  "N"              "N"             "N"               &lt;missing&gt;                 &lt;missing&gt;                     &lt;missing&gt;                       &lt;missing&gt;                   &lt;missing&gt;               &lt;missing&gt;                  &lt;missing&gt;                  &lt;missing&gt;            "Bima - 100000.0 people"                     &lt;missing&gt;                 &lt;missing&gt;                   &lt;missing&gt;                   &lt;missing&gt;                       &lt;missing&gt;                    &lt;missing&gt;               &lt;missing&gt;          &lt;missing&gt;                                                                                                            &lt;missing&gt;                              &lt;missing&gt;                  &lt;missing&gt;                   &lt;missing&gt;       
+
+ 
+Step n.3 - Attributes to delete because not useful in the final merged database
+ - identifier
+ - web
+ - CauseUnknown
+ - affected_quantitative
+ - agriculture_quantitative
+ - communications_quantitative
+ - cultural_heritage_quantitative
+ - death_quantitative
+ - education_quantitative
+ - environment_description
+ - environment_quantitative
+ - evacuated_quantitative
+ - forest_quantitative
+ - health_sector_quantitative
+ - heritage_quantitative
+ - houses_damaged_quantitative
+ - houses_destroyed_quantitative
+ - industry_quantitative
+ - injured_quantitative
+ - missing_quantitative
+ - roads_quantitative
+ - spatial_extent_quantitative
+ - transport_quantitative
+ 
+Step n.4 - Attributes candidate for deletion as contain more than 50% of missing values
+ - No other attributes candidate for deletion.
+ 
+    source_id      source               onset                   expires              location_name           country       continent    latitude    longitude    TypeCoastalFlood    TypeFlashFlood    TypeInlandFlood    TypeRiverFlood    TypeStormSurge    TypeUnknown    TypeLandslide    CauseDamBreak    CauseExtremeRainfall    CauseIceJam    CauseHighTide    CauseLongTermRainfall    CauseReservoirRelease    CauseSnowmelt    CauseSoilSaturation    CauseStormSurge    CauseTsunami                                                  magnitude_description                                              
+    _________    ___________    _____________________    _____________________    ____________________    _____________    _________    ________    _________    ________________    ______________    _______________    ______________    ______________    ___________    _____________    _____________    ____________________    ___________    _____________    _____________________    _____________________    _____________    ___________________    _______________    ____________    _________________________________________________________________________________________________________________
+
+      18172      "FloodList"    "2016-12-25T00:00:00"    "2016-12-28T00:00:00"    "Occidental Mindoro"    "Philippines"    "Asia"        13.102      120.77            "N"                "N"                "N"               "N"               "N"              "Y"             "N"              "N"                 "Y"                 "N"             "N"                  "N"                      "N"                  "N"                 "N"                  "N"              "N"         "Calapan, Oriental Mindoro - rainfall = 110.4 mm in 24 hours; Calayan, Cagayan - rainfall = 119.8 mm in 24 hours"
+      18172      "FloodList"    "2016-12-25T00:00:00"    "2016-12-28T00:00:00"    "Albay province"        "Philippines"    "Asia"        13.177      123.53            "N"                "N"                "N"               "N"               "N"              "Y"             "N"              "N"                 "Y"                 "N"             "N"                  "N"                      "N"                  "N"                 "N"                  "N"              "N"         "Calapan, Oriental Mindoro - rainfall = 110.4 mm in 24 hours; Calayan, Cagayan - rainfall = 119.8 mm in 24 hours"
+      18166      "FloodList"    "2016-12-25T00:00:00"    "2016-12-28T00:00:00"    "Kintore"               "Australia"      "Oceania"    -23.276      129.39            "N"                "N"                "Y"               "N"               "N"              "N"             "N"              "N"                 "Y"                 "N"             "N"                  "N"                      "N"                  "N"                 "N"                  "N"              "N"         "Walungurru district - rainfall = 231.6 mm in 24 hours"                                                          
+      18166      "FloodList"    "2016-12-25T00:00:00"    "2016-12-28T00:00:00"    "Uluru"                 "Australia"      "Oceania"    -25.344      131.03            "N"                "N"                "Y"               "N"               "N"              "N"             "N"              "N"                 "Y"                 "N"             "N"                  "N"                      "N"                  "N"                 "N"                  "N"              "N"         "Walungurru district - rainfall = 231.6 mm in 24 hours"                                                          
+      18164      "FloodList"    "2016-12-21T00:00:00"    "2016-12-26T00:00:00"    "East Rasanae"          "Indonesia"      "Asia"       -8.4884      118.82            "N"                "N"                "N"               "Y"               "N"              "N"             "N"              "N"                 "N"                 "N"             "N"                  "Y"                      "N"                  "N"                 "N"                  "N"              "N"         &lt;missing&gt;                                                                                                        
+
+</pre><pre class="codeoutput error">Error using MGFFD (line 245)
+The following error occurred converting from string to cell:
+Conversion to cell from string is not possible.
+</pre><h2 id="9">LOAD THE CPC UNIFIED GAUGE-BASED ANALYSIS OF GLOBAL DAILY PRECIPITATION</h2><pre class="codeinput">disp(<span class="string">" "</span>)
+disp(<span class="string">" "</span>)
+disp(<span class="string">"************************************************************************************"</span>)
+disp(<span class="string">"EXTRACTING THE GLOBAL DAILY PRECIPITATION FROM THE CPC UNIFIED GAUGE-BASED ANALYSIS"</span>)
+disp(<span class="string">"************************************************************************************"</span>)
+
+[lat, lon, PrecipCPC] = GlobalPPT_CPC_extract(DateS, DateF, CPC_Dir);
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%           
+          %                                                      %
+          %                    MATLAB TOOLBOX                    %
+          %   MERGED GLOBAL FLASH FLOOD DATABASE - VERSION 1.0   %
+          %                                                      %
+          %                     developed by                     %
+          %      Fatima Pillosu (Reading University & ECMWF)     %
+          %                                                      %
+          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The objective of this toolbox is to collect data from different sources
+% on flash flood occurrences around the world due to heavy rainfall, and
+% merged such information in one single global flash flood database. The 
+% merging operation undertaken in this toolbox is not a mere blending of 
+% raw data from different sources, but it uses data wrangling to ehnhance 
+% the usability of such raw datasets in understanding the capability of
+% current rainfall forecasting systems in predicting the likelihood of 
+% having a flash flood on a particular location. 
+
+% The code can be downloaded, run interactively on a web browser, or cited 
+% from the following GitHub repository:
+% https://github.com/FatimaPillosu/Merged-Global-Flash-Flood-DB
+
+
+%% CLEAN THE WORKSPACE AND THE COMMAND WINDOW
+clear
+clc
+
+
+%% USER'S INPUTS
+% Users are asked to enter some input parameters needed to run the toolbox.
+% Therefore, users may change the values of the input parameters in the 
+% "INPUTS" section according to their description in "DEFINITIONS".
+
+% DEFINITIONS
+% DateS (string): analysis period start date, in YYYY-MM-DD format.
+% DateF (string): analysis period final date, in YYYY-MM-DD format.
+% RawDBs (cell of chars): raw databases imported to be merged.
+%                         List of databases that can be currently imported:
+%                            - 'FL': FloodList;
+%                            - 'EMDAT': Emergency Events Database;
+%                            - 'ESWD': European Severe Weather Database;
+%                            - 'SED': Storm Event Database.
+
+% INPUTS
+DateS = "2016-04-01";
+DateF = "2017-03-31";
+RawDBs = {'FL','EMDAT','ESWD','SED'};
+
+
+%% IMPORTANT NOTE
+% Users must not modify the code from now on to avoid triggering
+% malfunctions in the toolbox.
+
+
+%% PATHS SETUP
+
+% Working Directory
+% It coincides with the directory created by cloning the Github repository
+WorkDir = pwd;
+
+% Raw Databases
+RawDBs_Dir = strcat(WorkDir, '/RawDBs');
+
+% CPC Unified Gauge-Based Analysis of Global Daily Precipitation
+CPC_Dir = strcat(WorkDir, '/CPC_GLOBAL_PRCP_V1.0');
+
+
+%% MERGED DATABASE SETUP
+
+% Attributes' Names
+FinalAtt = {'OrigSource', 'OrigSourceID', 'OrigReportQuality', 'Event_DateS', 'Event_DateF', 'Event_TimeS', 'Event_TimeF', 'Continent', 'Country', 'Location', 'Latitude', 'Longitude', 'EventType_CoastalFlood', 'EventType_FlashFlood', 'EventType_InlandFlood', 'EventType_TypeRiverFlood', 'EventType_TypeStormSurge', 'EventType_TypeUnknown', 'EventType_TypeLandslide', 'EventCause_DamBreak', 'EventCause_ExtremeRainfall', 'EventCause_IceJam', 'EventCause_HighTide', 'EventCause_LongTermRainfall', 'EventCause_ReservoirRelease', 'EventCause_Snowmelt', 'EventCause_SoilSaturation', 'EventCause_StormSurge', 'EventCause_Tsunami', 'Rainfall_Magnitude', 'CPC_Rainfall', 'ReportQuality'};
+
+% Attributes' Types
+FinalAttType = {'cell', 'double', 'double', 'cell', 'cell', 'double', 'double', 'cell', 'cell', 'cell', 'double', 'double', 'categorical', 'categorical', 'categorical', 'categorical', 'categorical', 'categorical', 'categorical', 'categorical', 'categorical', 'categorical', 'categorical', 'categorical', 'categorical', 'categorical', 'categorical', 'categorical', 'categorical', 'double', 'double', 'double'};
+
+
+%% DISPLAY ON SCREEN TOOLBOX GENERAL INFORMATION AND USER'S INPUTS
+
+disp("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+disp("%                                                      %")
+disp("%                    MATLAB TOOLBOX                    %")
+disp("%   MERGED GLOBAL FLASH FLOOD DATABASE - VERSION 1.0   %")
+disp("%                                                      %")
+disp("%                     developed by                     %")
+disp("%      Fatima Pillosu (Reading University & ECMWF)     %")
+disp("%                                                      %")
+disp("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+
+disp(" ")
+disp("The objective of this toolbox is to collect data from different sources")
+disp("on flash flood occurrences around the world due to heavy rainfall, and")
+disp("merged such information in one single global flash flood database. The")
+disp("merging operation undertaken in this toolbox is not a mere blending of")
+disp("raw data from different sources, but it uses data wrangling to ehnhance")
+disp("the usability of such raw datasets in understanding the capability of")
+disp("current rainfall forecasting systems in predicting the likelihood of") 
+disp("having a flash flood on a particular location.")
+
+disp(" ")
+disp("The code can be downloaded, run interactively on a web browser, or cited from the following GitHub repository:")
+disp("https://github.com/FatimaPillosu/Merged-Global-Flash-Flood-DB")
+
+disp(" ")
+disp("*** USER'S INPUTS ***")
+disp(" - Analysis Period: ")
+disp(strcat("    from ", DateS, " to ", DateF))
+disp(" - Raw Databases: ")
+disp(RawDBs)
+
+disp("*** TOOLBOX DIRECTORIES ***")
+disp(" - Working directory: ")
+disp(strcat("    ", WorkDir))
+disp(" - Raw databases: ")
+disp(strcat("    ", RawDBs_Dir))
+disp(" - CPC unified gauge-based analysis of global daily precipitation: ")
+disp(strcat("    ", CPC_Dir))
+
+disp(" ")
+disp("*** MERGED GLOBAL FLASH FLOOD DATABASE ***")
+disp(" - Attributes: ")
+for i = 1 : length(FinalAtt)
+    disp(strcat("    ", FinalAtt{i}))
+end
+
+
+%% RAW DATABASES PRE-PROCESSING
+
+disp(" ")
+disp(" ")
+disp("****************************")
+disp("PRE-PROCESSING RAW DATABASES")
+disp("****************************")
+
+Num_RawDBs = length(RawDBs);
+ind_RawDB = 1;
+
+
+NameRawDB = RawDBs{ind_RawDB};
+disp(" ")
+disp(strcat("*** PRE-PROCESSING '", NameRawDB, "' RAW DATABASE ***"))
+
+% Setting database-specific variables
+switch NameRawDB
+    case 'FL'
+        % Attributes that one is certain wants to delete
+        Att4Del = {'identifier','web', 'CauseUnknown', 'affected_quantitative', 'agriculture_quantitative', 'communications_quantitative', 'cultural_heritage_quantitative', 'death_quantitative', 'education_quantitative', 'environment_description', 'environment_quantitative', 'evacuated_quantitative', 'forest_quantitative', 'health_sector_quantitative', 'heritage_quantitative', 'houses_damaged_quantitative', 'houses_destroyed_quantitative', 'industry_quantitative', 'injured_quantitative', 'missing_quantitative', 'roads_quantitative', 'spatial_extent_quantitative', 'transport_quantitative'};
+        % Attributes that store lat/lon values
+        LatLon_Att = {'latitude','longitude'}; 
+        % Max tollerance (in percent) of missing values per attribute
+        MissTol = 50;
+    otherwise
+        error("Not valid raw database name.")
+end
+
+
+%%%%%%%%%%%%%%%%%%%%%% Importing the raw csv file(s) %%%%%%%%%%%%%%%%%%%%%%
+
+disp(" ")
+disp("Step n.1 - Loading the raw data (if more files need to be loaded, they are automatically merged into one single table)")
+RawDB_Dir_temp = strcat(RawDBs_Dir, '/', NameRawDB, '/Original');
+RawDB_temp = dir(RawDB_Dir_temp);
+[m,~] = size(RawDB_temp);
+if m < 3
+    disp("No files to import.")
+else
+    TotRawDB_temp = []; % if the data is split in more files, they are merged in one variable
+    for j = 3 : m
+        RawDB_Name_temp = RawDB_temp(j).name;
+        RawDB_File_temp = strcat(RawDB_Dir_temp, '/', RawDB_Name_temp);
+        disp(strcat(" - Importing ", RawDB_File_temp))
+        test = load_EMDAT(RawDB_File_temp);
+        TotRawDB_temp = [TotRawDB_temp; load_EMDAT(RawDB_File_temp)];
+    end
+end
+[m,n] = size(TotRawDB_temp);
+VarNames = TotRawDB_temp.Properties.VariableNames;
+
+disp(" ")
+disp("Step n.2 - Display some general information about the raw database")
+disp(strcat(" - Number of total instances (rows): ", num2str(m)))
+disp(strcat(" - Number of attributes (columns): ", num2str(n)))
+disp(" - Raw Database preview:")
+disp(" ")
+disp(head(TotRawDB_temp,5))
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% Cleaning the raw csv file %%%%%%%%%%%%%%%%%%%%%%%%
+
+% Cleaning from attributes that might not be useful in the merged database
+disp(" ")
+disp("Step n.3 - Attributes to delete because not useful in the final merged database")
+for i = 1 : length(Att4Del)
+    disp(strcat(" - ", Att4Del{i}))
+    TotRawDB_temp(:,Att4Del{i}) = [];
+end
+[m,n] = size(TotRawDB_temp);
+VarNames = TotRawDB_temp.Properties.VariableNames;
+
+% Cleaning from attributes that contain too many missing values
+disp(" ")
+disp(strcat("Step n.4 - Attributes candidate for deletion as contain more than ", num2str(MissTol), "% of missing values"))
+Missing2Del = {};
+for i = 1 : n
+    temp = TotRawDB_temp(:,i);
+    missing_temp = sum(ismissing(temp));
+    perc_missing = missing_temp/m*100;
+    if perc_missing >= MissTol
+        disp(strcat(" - ", VarNames{i}))
+        Missing2Del = [Missing2Del, VarNames{i}];
+    end
+end
+
+if isempty(Missing2Del)
+    disp(" - No other attributes candidate for deletion.")
+else
+    % Check that lat/lon attributes are not in the list of candidates for deletion
+    if sum(strcmp(VarNames,LatLon_Att{1}))==1 || sum(strcmp(VarNames,LatLon_Att{2}))==1
+        disp(" - 'Latitude' and 'Longitude' attributes will not be deleted.")
+        Missing2Del(Missing2Del == LatLon_Att{1}) = [];
+        Missing2Del(Missing2Del == LatLon_Att{2}) = [];
+    end
+end  
+
+disp(" ")
+disp(head(TotRawDB_temp,5))
+
+
+%%%%%%%%%%%%%%%%%%%%%% Transforming the raw csv file %%%%%%%%%%%%%%%%%%%%%%
+
+% Create the template for the final merged database
+NumAtt = length(FinalAtt);
+MergedDB = table('Size', [m,NumAtt], 'VariableTypes', FinalAttType, 'VariableNames', FinalAtt);
+
+% 1st attribute
+MergedDB(:,1) = array2table(repmat({NameRawDB},m,1));
+
+% 2nd attribute
+MergedDB(:,2) = TotRawDB_temp(:,'source_id');
+
+% 3rd attribute
+MergedDB(:,3) = array2table(nan(m,1));
+
+% 8th-32nd attribute
+MergedDB(:,8) = TotRawDB_temp(:,'country');
+MergedDB(:,9) = TotRawDB_temp(:,'country');
+MergedDB(:,10) = TotRawDB_temp(:,'country');
+MergedDB(:,11) = TotRawDB_temp(:,'country');
+MergedDB(:,12) = TotRawDB_temp(:,'country');
+MergedDB(:,13) = TotRawDB_temp(:,'country');
+MergedDB(:,14) = TotRawDB_temp(:,'country');
+MergedDB(:,15) = TotRawDB_temp(:,'country');
+MergedDB(:,16) = TotRawDB_temp(:,'country');
+MergedDB(:,17) = TotRawDB_temp(:,'country');
+MergedDB(:,18) = TotRawDB_temp(:,'country');
+MergedDB(:,19) = TotRawDB_temp(:,'country');
+MergedDB(:,20) = TotRawDB_temp(:,'country');
+MergedDB(:,21) = TotRawDB_temp(:,'country');
+MergedDB(:,23) = TotRawDB_temp(:,'country');
+MergedDB(:,24) = TotRawDB_temp(:,'country');
+MergedDB(:,25) = TotRawDB_temp(:,'country');
+MergedDB(:,26) = TotRawDB_temp(:,'country');
+MergedDB(:,27) = TotRawDB_temp(:,'country');
+MergedDB(:,28) = TotRawDB_temp(:,'country');
+MergedDB(:,29) = TotRawDB_temp(:,'country');
+MergedDB(:,30) = TotRawDB_temp(:,'country');
+MergedDB(:,31) = TotRawDB_temp(:,'country');
+MergedDB(:,32) = TotRawDB_temp(:,'country');
+
+
+%% LOAD THE CPC UNIFIED GAUGE-BASED ANALYSIS OF GLOBAL DAILY PRECIPITATION
+
+disp(" ")
+disp(" ")
+disp("************************************************************************************")
+disp("EXTRACTING THE GLOBAL DAILY PRECIPITATION FROM THE CPC UNIFIED GAUGE-BASED ANALYSIS")
+disp("************************************************************************************")
+
+[lat, lon, PrecipCPC] = GlobalPPT_CPC_extract(DateS, DateF, CPC_Dir);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##### SOURCE END #####
+--></body></html>

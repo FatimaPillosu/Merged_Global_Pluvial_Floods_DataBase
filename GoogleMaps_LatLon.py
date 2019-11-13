@@ -1,6 +1,8 @@
 import googlemaps
+import sys
 
-KEY_API='' # Set here your google key api from "Google Cloud Platform".
+KEY_API = sys.argv[1]
+print(KEY_API)
 
 gmaps_key = googlemaps.Client(key=KEY_API)
 
