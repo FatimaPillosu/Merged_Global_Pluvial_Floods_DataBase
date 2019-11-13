@@ -1,4 +1,4 @@
-function RawFL = load_RawFL(filename, NumVars, DataLine, Delimiter, NameVars, TypeVars)
+function RawFL = load_RawDBs(filename, NumVars, DataLine, Delimiter, NameVars, TypeVars)
 
 %% Setup the Import Options and import the data
 opts = delimitedTextImportOptions("NumVariables", NumVars);
