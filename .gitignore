@@ -1,0 +1,2 @@
+# Ignore data files as they are too big to be added in the Github repository
+RawDBs/*
