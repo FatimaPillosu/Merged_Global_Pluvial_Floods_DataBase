@@ -1,5 +1,4 @@
-# Ignore data files as they are too big to be added in the Github repository
-RawDBs/*
-CPC_GLOBAL_PRCP_V1.0/*
+# Ignore data files as they are too big to be added in the Github repository.
+# They will be downloaded from Zenodo
+Data/*
 *.m~
-Documentation/*
