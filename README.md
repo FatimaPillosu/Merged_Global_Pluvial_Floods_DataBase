@@ -16,16 +16,16 @@ The four raw databases are:
 
 _NOTE: For more details about these databases (documentation, licenses, etc.), look at the README.md file in the Zenodo repository that contains the raw data used in this repository (badge below)._
 
-License  
+__*License*__  
 [![License: CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-__Deploy Jupyter Notebook with MyBinder.org__     
+__*Deploy Jupyter Notebook with MyBinder.org*__     
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/FatimaPillosu/Test_JupyterNB_Bynder.git/master)     
 
-__Zenodo Repository for the data (input databases and MGPF_DB)__ 
+__*Data Zenodo Repository (input databases and MGPF_DB)*__  
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3479846.svg)](https://doi.org/10.5281/zenodo.3479846)
 
-__Zenodo Repository for the code (Python code and Jupyter notebook)__ 
+__*Code Zenodo Repository (Python code and Jupyter notebook)*__  
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3479846.svg)](https://doi.org/10.5281/zenodo.3479846)
 
 
