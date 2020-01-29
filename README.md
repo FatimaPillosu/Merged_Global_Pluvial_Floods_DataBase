@@ -5,7 +5,7 @@ This Python tool merges four (regional and global) flood databases into one sing
 This tool uses data wrangling methods to ehnhance the usability of each single database to understand the capability of current global rainfall forecasts in predicting pluvial floods (including flash floods). 
   
 This repository contains:
-1. the Python code that selects and post-processes the pluvial flood reports from four different databases, and merges them into one single global database for pluvial flood reports.
+1. the Python code that selects and post-processes the pluvial flood reports from four different databases, and merges them into one single database for global pluvial flood reports.
 2. a Jupyter notebook that runs the Python code, which can also be deployed using MyBinder.org to create a sharable, interactive, reproducible environment, so that the Jupyter notebook can be used by many remote users.
 
 The four original databases are:
