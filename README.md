@@ -1,37 +1,32 @@
-# Merged Global Flash Flood DB
+# Merged Global Pluvial Flood DataBase (MGPF_DB)  
 
-Deploy the Jupyter Notebook with Binder     
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/FatimaPillosu/Test_JupyterNB_Bynder.git/master)     
-
-Code DOI  
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3479846.svg)](https://doi.org/10.5281/zenodo.3479846)
-
-Data DOI  
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3479846.svg)](https://doi.org/10.5281/zenodo.3479846)
+This repository consists in a Python tool that merges four raw flood databases into one single global pluvial flood database. Such Python tool uses data wrangling methods to ehnhance the usability of the single raw datasets in understanding the capability of current global rainfall forecasts in predicting pluvial/flash flood prone areas. 
+  
+This repository contains:
+1. the Python code that selects the pluvial flood reports from four different raw databases, and merges them into one single global pluvial flood database.
+2. a Jupyter notebook that runs the Python code.  
 
 License  
 [![License: CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
+Deploy the Jupyter Notebook with Binder     
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/FatimaPillosu/Test_JupyterNB_Bynder.git/master)     
+
+Data DOI  
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3479846.svg)](https://doi.org/10.5281/zenodo.3479846)
+
+Code DOI  
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3479846.svg)](https://doi.org/10.5281/zenodo.3479846)
+
+
 ------------------------------------------
-
-This repository contains:
-1. the Matlab toolbox "MGFFDB" that collects, from different sources, (flash) flood reports due to heavy rainfall, and merge them into one single global flash flood database.
-2. a Jupyter notebook that runs the Matlab toolbox "MGFFDB".  
-
-The merging operation undertaken in the toolbox is more than a mere blending exercise. It uses data wrangling to ehnhance the usability of the raw datasets in understanding the capability of current global rainfall forecasts in predicting (flash) flood prone areas. 
- 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine or in the cloud for development and testing purposes.
-
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+Python 3
+Metview-Python
 
 ### Installing
 
