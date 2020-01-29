@@ -5,8 +5,9 @@ This Python tool merges four (regional and global) flood databases into one sing
 This tool uses data wrangling methods to ehnhance the usability of each single database to understand the capability of current global rainfall forecasts in predicting pluvial floods (including flash floods). 
   
 This repository contains:
-1. the Python code that selects and post-processes the pluvial flood reports from four different databases, and merges them into one single database for global pluvial flood reports.
-2. a Jupyter notebook that runs the Python code, which can also be deployed using MyBinder.org to create a sharable, interactive, reproducible environment, so that the Jupyter notebook can be used by many remote users.
+1. The Python code that selects and post-processes the pluvial flood reports from four different databases, and merges them into one single database for global pluvial flood reports.
+2. A Jupyter notebook that runs the Python code.
+3. Such Jupyter notebook can also be deployed with MyBinder.org to create a sharable, interactive, reproducible environment, so that the notebook can be used by remote users to verify the methodology used to create the MGPF_DB or compute the MGPF_DB for another period.
 
 The four original databases are:
 1. FloodList, FL (Global domain): http://floodlist.com/
