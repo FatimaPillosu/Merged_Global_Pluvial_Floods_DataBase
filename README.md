@@ -22,10 +22,10 @@ __*License*__
 __*Deploy Jupyter Notebook with MyBinder.org*__     
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/FatimaPillosu/Test_JupyterNB_Bynder.git/master)     
 
-__*Data Zenodo Repository (input databases and MGPF_DB)*__  
+__*Data DOI - Zenodo Repository (input databases and MGPF_DB)*__  
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3479846.svg)](https://doi.org/10.5281/zenodo.3479846)
 
-__*Code Zenodo Repository (Python code and Jupyter notebook)*__  
+__*Code DOI - Zenodo Repository (Python code and Jupyter notebook)*__  
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3479846.svg)](https://doi.org/10.5281/zenodo.3479846)
 
 
