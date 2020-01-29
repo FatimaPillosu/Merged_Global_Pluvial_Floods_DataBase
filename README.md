@@ -19,13 +19,13 @@ _NOTE: For more details about these databases (documentation, licenses, etc.), l
 License  
 [![License: CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-Deploy Jupyter Notebook with MyBinder.org     
+__Deploy Jupyter Notebook with MyBinder.org__     
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/FatimaPillosu/Test_JupyterNB_Bynder.git/master)     
 
-Zenodo Repository for the data (input databases and MGPF_DB)
+__Zenodo Repository for the data (input databases and MGPF_DB)__ 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3479846.svg)](https://doi.org/10.5281/zenodo.3479846)
 
-Zenodo Repository for the code (Python code and Jupyter notebook) 
+__Zenodo Repository for the code (Python code and Jupyter notebook)__ 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3479846.svg)](https://doi.org/10.5281/zenodo.3479846)
 
 
