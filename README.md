@@ -5,7 +5,7 @@ This Python tool merges four flood databases into one single database that conta
 This tool uses data wrangling methods to ehnhance the usability of each single database in order to verify whether current global rainfall forecasts can be succesfully used as proxy variables to predict pluvial/flash floods. 
   
 This repository contains:
-1. The Python code that selects and post-processes the pluvial flood reports from four different databases, and merges them into one single database for global pluvial flood reports.
+1. The Python code that selects and post-processes the pluvial/flash flood reports from four different databases, and merges them into one single database for global pluvial flood reports.
 2. A Jupyter notebook that runs the Python code.
 
 The Jupyter notebook can be deployed with MyBinder.org (badge below) to create a sharable, interactive, reproducible environment. Thus, the notebook can be used by remote users to verify the methodology used to create the MGPF_DB or compute the MGPF_DB for another period.
