@@ -1,4 +1,3 @@
 # Ignore data files as they are too big to be added in the Github repository.
-# They will be downloaded from Zenodo
+# They will be downloaded from Zenodo.
 Data/*
-*.m~
