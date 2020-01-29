@@ -7,7 +7,8 @@ This tool uses data wrangling methods to ehnhance the usability of each single d
 This repository contains:
 1. The Python code that selects and post-processes the pluvial flood reports from four different databases, and merges them into one single database for global pluvial flood reports.
 2. A Jupyter notebook that runs the Python code.
-3. Such Jupyter notebook can also be deployed with MyBinder.org to create a sharable, interactive, reproducible environment, so that the notebook can be used by remote users to verify the methodology used to create the MGPF_DB or compute the MGPF_DB for another period.
+
+The Jupyter notebook can be deployed with MyBinder.org (badge below) to create a sharable, interactive, reproducible environment. Thus, the notebook can be used by remote users to verify the methodology used to create the MGPF_DB or compute the MGPF_DB for another period.
 
 The four original databases are:
 1. FloodList, FL (Global domain): http://floodlist.com/
