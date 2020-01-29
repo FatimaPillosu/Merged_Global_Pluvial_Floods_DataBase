@@ -1,8 +1,8 @@
 # Merged Global Pluvial Flood DataBase (MGPF_DB)  
 
-This Python tool merges four (regional and global) flood databases into one single database that contains global reports only for pluvial floods for the period April 2016 - March 2017. 
+This Python tool merges four flood databases into one single database that contains global reports for pluvial floods (including flash floods) for the period April 2016 - March 2017. 
 
-This tool uses data wrangling methods to ehnhance the usability of each single database to understand the capability of current global rainfall forecasts in predicting pluvial floods (including flash floods). 
+This tool uses data wrangling methods to ehnhance the usability of each single database in order to verify whether current global rainfall forecasts can be succesfully used as proxy variables to predict pluvial/flash floods. 
   
 This repository contains:
 1. The Python code that selects and post-processes the pluvial flood reports from four different databases, and merges them into one single database for global pluvial flood reports.
