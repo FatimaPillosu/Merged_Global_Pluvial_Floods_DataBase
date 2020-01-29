@@ -8,7 +8,7 @@ This repository contains:
 1. the Python code that selects and post-processes the pluvial flood reports from four different databases, and merges them into one single global database for pluvial flood reports.
 2. a Jupyter notebook that runs the Python code, which can also be deployed using MyBinder.org to create a sharable, interactive, reproducible environment, so that the Jupyter notebook can be used by many remote users.
 
-The four raw databases are:
+The four original databases are:
 1. FloodList, FL (Global domain): http://floodlist.com/
 2. Emergency Events Database, EMDAT (Global domain): https://www.emdat.be/
 3. European Severe Weather Database, ESWD (Europe): https://www.essl.org/cms/european-severe-weather-database/
