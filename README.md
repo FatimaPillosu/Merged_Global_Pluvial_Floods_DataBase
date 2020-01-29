@@ -12,7 +12,7 @@ The four raw databases are:
 1. FloodList, FL (Global domain): http://floodlist.com/
 2. Emergency Events Database, EMDAT (Global domain): https://www.emdat.be/
 3. European Severe Weather Database, ESWD (Europe): https://www.essl.org/cms/european-severe-weather-database/
-4. Storm Events Database, SED (USA): https://www.ncdc.noaa.gov/stormevents/
+4. Storm Events Database, SED (USA): https://www.ncdc.noaa.gov/stormevents/ 
 For more details about these databases (documentation, licenses, etc.), look at the README.md file in the Zenodo repository that contains the raw data used in this repository (badge below).
 
 License  
