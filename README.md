@@ -4,7 +4,7 @@ This Python tool merges four flood databases into one single database that conta
 
 This tool uses data wrangling methods to enhance the usability of each single database to answer the following research question: current global rainfall forecasts can be succesfully used as proxy variables to predict pluvial/flash floods? 
   
-This repository contains:
+## Repository Content
 1. The Python code that selects and post-processes the flood reports in four different databases, and merges them into one single database for global pluvial/flash flood reports.
 2. A Jupyter notebook that runs the Python code.
 
