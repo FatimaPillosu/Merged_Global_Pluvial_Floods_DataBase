@@ -1,4 +1,4 @@
-# Merged Global Pluvial Floods DataBase (MGPF_DB) 
+# Merged Global Pluvial Floods DataBase (MGPF_DB)  
 
 
 ## Project Description
@@ -11,7 +11,7 @@ This tool uses data wrangling methods to enhance the usability of each single da
 1. The Python code that selects and post-processes the flood reports in four different databases, and merges them into one single database for global pluvial/flash flood reports.
 2. A Jupyter notebook that runs the Python code.
 
-The Jupyter notebook can be deployed with MyBinder.org (badge below) to create a sharable, interactive, reproducible environment. Thus, the notebook can be used by remote users to verify the methodology used to create the MGPF_DB or compute the MGPF_DB for another period.
+The Jupyter notebook can be deployed with MyBinder.org (badge below) to create a sharable, interactive, and reproducible environment. Thus, the notebook can be used by remote users to verify the methodology used to create the MGPF_DB or compute the MGPF_DB for another period.
 
 The four original databases are:
 1. FloodList, FL (Global domain): http://floodlist.com/
@@ -19,7 +19,7 @@ The four original databases are:
 3. European Severe Weather Database, ESWD (Europe): https://www.essl.org/cms/european-severe-weather-database/
 4. Storm Events Database, SED (USA): https://www.ncdc.noaa.gov/stormevents/ 
 
-_NOTE: For more details about these databases (documentation, licenses, etc.), look at the README.md file in the Zenodo repository that contains the raw data used in this repository (badge below)._
+_NOTE: For more details about these databases (documentation, licenses, etc.), look at the README.md file in the Zenodo repository that contains the raw reports (badge below)._
 
 __*License*__  
 [![License: CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
