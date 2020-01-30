@@ -13,6 +13,7 @@ This tool uses data wrangling methods to enhance the usability of each single da
 
 The Jupyter notebook can be deployed with MyBinder.org (badge below) to create a sharable, interactive, and reproducible environment. Thus, the notebook can be used by remote users to verify the methodology used to create the MGPF_DB or compute the MGPF_DB for another period.
 
+## Original flood databases
 The four original databases are:
 1. FloodList, FL (Global domain): http://floodlist.com/
 2. Emergency Events Database, EMDAT (Global domain): https://www.emdat.be/
@@ -20,6 +21,8 @@ The four original databases are:
 4. Storm Events Database, SED (USA): https://www.ncdc.noaa.gov/stormevents/ 
 
 _NOTE: For more details about these databases (documentation, licenses, etc.), look at the README.md file in the Zenodo repository that contains the raw reports (badge below)._
+
+-----------------------------------------------------------------------------------------------------------------------------
 
 __*License*__  
 [![License: CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
