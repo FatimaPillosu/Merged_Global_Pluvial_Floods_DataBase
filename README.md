@@ -47,9 +47,9 @@ Information about Anaconda Distribution and download can be found [here](https:/
 2. **Metview-Python** (to plot the flood reports in the database).  
 Information about Metview-Python can be found [here](https://confluence.ecmwf.int/display/METV/Metview%27s+Python+Interface).   
 
-### Installing the Jupyter Notebook
+### Install the virtual environment to run the Jupyter Notebook
 
-1. **Install Anaconda Distribution for your OS.**   
+1. **Install Anaconda Distribution**   
 
 Follow the link provided in the "Prerequisites" section at point 1. Note that you must install the Anaconda version that runs Python3 as it is required by Metview-Python.
 
@@ -68,7 +68,7 @@ $ cd # goes to the user's /home
 $ git clone https://github.com/FatimaPillosu/Merged_Global_Pluvial_Floods_DataBase.git
 ```
 
-3. **Create and activate the virtual environment for the project**
+3. **Create and activate the virtual environment**
 
 These steps will install all the Python modules and the binaries  of Metview-Python needed to run the Jupiter notebook. In the terminal type the following commands:
 ```sh
@@ -84,43 +84,7 @@ $ jupyter notebook MGPF_DB.ipynb
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and wh
-```
-Give an example
-```
-
-### Coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+<p>&nbsp;</p>
 
 ## Versioning
 
@@ -134,5 +98,3 @@ Give an example
 ## Acknowledgments
 
 *Thanks to the owners of the raw reports to allow the publication of the data to allow the fully reprocibility of the Matlab toolbox and the Jupiter notebook.
-
-
