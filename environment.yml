@@ -1,0 +1,12 @@
+name: Metview-Python
+channels:
+  - conda-forge
+dependencies:
+  - metview-batch
+  - pip
+  - pip:
+    - metview
+    - numpy
+    - pandas
+    - matplotlib
+    - zenodo-get
