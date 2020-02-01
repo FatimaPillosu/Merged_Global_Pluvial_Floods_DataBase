@@ -57,8 +57,18 @@ Check whether conda is installed correctly. You should see the following output:
 $ conda -V
 conda 4.7.12
 ```
+Check whether conda is up to date:
+```sh
+$ conda update conda
+```
+Update any packages if necessary by typing _"y"_ to proceed.
 
-2. **Create and 
+
+2. **Create a virtual environment for the project**
+
+
+
+
 
 
 
