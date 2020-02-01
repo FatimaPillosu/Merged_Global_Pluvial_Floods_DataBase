@@ -62,7 +62,7 @@ $ conda update conda
 
 2. **Download the repository**
 
-Type in the terminal  the following commands:
+Type in the terminal the following commands:
 ```sh
 $ cd # goes to the user's /home
 $ git clone https://github.com/FatimaPillosu/Merged_Global_Pluvial_Floods_DataBase.git
@@ -90,16 +90,9 @@ $ jupyter notebook MGPF_DB.ipynb
 
 MGPF uses the [SemVer](http://semver.org/) standard for its versioning. Have a look to the versions available [here](https://github.com/FatimaPillosu/Merged_Global_Pluvial_Floods_DataBase/releases). 
 
-
-
-<p>&nbsp;</p>
-
 ## Authors
 
-**Fatima Pillosu** - [Github](https://github.com/FatimaPillosu) - [Orcid](https://orcid.org/0000-0001-8127-0990) - [ResearchGate](https://www.researchgate.net/profile/Fatima_Pillosu)
-
-
-<p>&nbsp;</p>
+**Fatima Pillosu**, [Github](https://github.com/FatimaPillosu) - [Orcid](https://orcid.org/0000-0001-8127-0990) - [ResearchGate](https://www.researchgate.net/profile/Fatima_Pillosu)
 
 ## Acknowledgments
 
