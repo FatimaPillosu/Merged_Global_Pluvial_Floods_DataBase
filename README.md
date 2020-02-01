@@ -41,10 +41,10 @@ __*Code DOI - Zenodo Repository (Python code and Jupyter notebook)*__
 
 ### Prerequisites
 
-1. Anaconda Distribution (to get **Python3**, **Numpy**, **Pandas**, and **Matplotlib** to process the flood reports).  
+1. **Anaconda Distribution** (to get _Python3_, _Numpy_, _Pandas_, and _Matplotlib_ to process the flood reports).  
 Information and download about Anaconda Distribution can be found [here](https://www.anaconda.com/distribution/)     
 
-2. Metview-Python: (to plot the flood reports in the database)  
+2. **Metview-Python** (to plot the flood reports in the database).  
 Information and download about Metview-Python can be found [here](https://confluence.ecmwf.int/display/METV/Metview%27s+Python+Interface)   
 
 ### Installing
