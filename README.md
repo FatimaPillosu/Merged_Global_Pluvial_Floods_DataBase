@@ -10,7 +10,7 @@ This tool uses data wrangling methods to enhance the usability of each single da
 <p>&nbsp;</p>
 
 ## Repository Content
-The repository contains the Jupyter notebook that runs a Python code that selects and post-processes the flood reports in four different databases, and merges them into one single database for global pluvial/flash flood reports. It also runs the Metview-Python code to visualize the flood reports.
+The Jupyter notebook runs a Python code that post-processes the raw flood reports, using information extracted from other datasets, to select some reports of interest (mainly regarding pluvial and flash floods). At a later stage, such reports are merged into a single database for global pluvial/flash flood reports. The Jupyter notebook also runs a Metview-Python code to visualize partial and final results as map plots.
 
 The Jupyter notebook can be deployed with MyBinder.org (badge below) to create a sharable, interactive, and reproducible environment. Thus, the notebook can be used by remote users to verify the methodology used to create the MGPF_DB or compute the MGPF_DB for another period.
 
