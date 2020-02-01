@@ -33,53 +33,70 @@ __*Code DOI - Zenodo Repository (Python code and Jupyter notebook)*__
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3479846.svg)](https://doi.org/10.5281/zenodo.3479846)
 
 
-
-
-------------------------------------------
-
 ## Getting Started
 
 ### Prerequisites
 
 1. **Anaconda Distribution** (to get _Python3_, _Numpy_, _Pandas_, and _Matplotlib_ to process the flood reports).  
-Information and download about Anaconda Distribution can be found [here](https://www.anaconda.com/distribution/).     
+Information about Anaconda Distribution and download can be found [here](https://www.anaconda.com/distribution/).     
 
 2. **Metview-Python** (to plot the flood reports in the database).  
-Information and download about Metview-Python can be found [here](https://confluence.ecmwf.int/display/METV/Metview%27s+Python+Interface).   
+Information about Metview-Python can be found [here](https://confluence.ecmwf.int/display/METV/Metview%27s+Python+Interface).   
 
-### Installing
+### Installing the Jupyter Notebook
 
-1. **Install the right Anaconda Distribution for your OS.**   
-NOTE: You must install the version for Python3 because it is required to run Metview-Python.
+1. **Install Anaconda Distribution for your OS.**   
 
-Check whether conda is installed correctly. You should see the following output:
+Follow the link provided in the "Prerequisite" section at point 1. Note that you must install the Anaconda version that runs Python3 as it is required by Metview-Python.
+
+Check whether conda is installed correctly (you should see the displayed output), and check whether conda is up to date (updating any packages if necessary by typing _"y"_ to proceed):
 ```sh
 $ conda -V
 conda 4.7.12
-```
-Check whether conda is up to date:
-```sh
 $ conda update conda
 ```
-Update any packages if necessary by typing _"y"_ to proceed.
+---
+2. **Download the repository**
 
-
-2. **Create a virtual environment for the project**
-
-g
-
-
-
-
-
-There are two ways to run the Jupyter notebook:
-1. In the cloud, on a web brower: click on the badge "launch binder".
-2. On your local machine: 
-
+Type in the terminal  the following commands:
 ```sh
-$ git clone https://github.com/FatimaPillosu/Merged-Global-Flash-Flood-DB.git
-$ cd Merged-Global-Flash-Flood-DB
-$ ./Launch_Jupyter_Matlab.sh
+$ cd # goes to the user's /home
+$ git clone https://github.com/FatimaPillosu/Merged_Global_Pluvial_Floods_DataBase.git
+```
+---
+3. **Create and activate the virtual environment for the project**
+
+These steps will install all the Python modules and the binaries  of Metview-Python needed to run the Jupiter notebook. In the terminal type the following commands:
+```sh
+$ cd Merged_Global_Pluvial_Floods_DataBase
+$ conda env create -f environment.yml
+$ conda activate Metview-Python
+```
+---
+4. **Run the Jupiter Notebook**
+In the terminal type the following commands:
+```sh
+$ jupyter notebook MGPF_DB.ipynb
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```
 
 ## Running the tests
