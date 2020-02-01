@@ -77,7 +77,7 @@ $ conda env create -f environment.yml
 $ conda activate Metview-Python
 ```
 
-4. **Run the Jupiter Notebook**
+4. **Run the Jupiter Notebook**  
 In the terminal type the following commands:
 ```sh
 $ jupyter notebook MGPF_DB.ipynb
