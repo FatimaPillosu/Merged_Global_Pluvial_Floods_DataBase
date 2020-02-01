@@ -26,7 +26,7 @@ __*License*__
 [![License: CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 __*Deploy Jupyter Notebook with MyBinder.org*__     
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/FatimaPillosu/Test_JupyterNB_Bynder.git/master)     
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/FatimaPillosu/Merged_Global_Pluvial_Floods_DataBase/master)
 
 __*Data DOI - Zenodo Repository (input databases and MGPF_DB)*__  
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3633750.svg)](https://doi.org/10.5281/zenodo.3633750)
