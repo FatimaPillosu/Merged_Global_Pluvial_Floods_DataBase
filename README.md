@@ -86,7 +86,7 @@ $ conda activate Metview-Python
 MGPF_DB uses the [SemVer](http://semver.org/) standard for its versioning. Have a look to the available versions [here](https://github.com/FatimaPillosu/Merged_Global_Pluvial_Floods_DataBase/releases). 
 
 ## Authors  
-**Fatima Pillosu:** [Github](https://github.com/FatimaPillosu) - [Orcid](https://orcid.org/0000-0001-8127-0990) - [ResearchGate](https://www.researchgate.net/profile/Fatima_Pillosu)
+**Fatima Pillosu:** [Github](https://github.com/FatimaPillosu) - [Orcid](https://orcid.org/0000-0001-8127-0990) - [ResearchGate](https://www.researchgate.net/profile/Fatima_Pillosu) - [Twitter](https://twitter.com/pillosufatima?lang=en)
 
 ## Acknowledgments  
 _Thanks to the owners of the original databases for granting the publication of the raw reports within this repository. This allows the fully reproducibility of the Jupiter notebook_.
