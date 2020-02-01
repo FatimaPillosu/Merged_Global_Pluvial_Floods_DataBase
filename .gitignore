@@ -1,3 +1,6 @@
-# Ignore data files as they are too big to be added in the Github repository.
+# Ignore data files as they are too big to be added in the repository.
 # They will be downloaded from Zenodo.
 Data/*
+
+# Ignore ipython notebook checkpoints anywhere in the repository
+.ipynb_checkpoints
