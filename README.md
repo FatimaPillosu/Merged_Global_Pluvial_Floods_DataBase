@@ -88,7 +88,7 @@ $ jupyter notebook MGPF_DB.ipynb
 
 ## Versioning
 
-[SemVer](http://semver.org/) is used for versioning. For the versions available, see the [releases](https://github.com/FatimaPillosu/Merged_Global_Pluvial_Floods_DataBase/releases) for this repository. 
+MGPF uses the [SemVer](http://semver.org/) standard for its versioning. Have a look to the versions available [here](https://github.com/FatimaPillosu/Merged_Global_Pluvial_Floods_DataBase/releases). 
 
 
 
@@ -103,4 +103,4 @@ $ jupyter notebook MGPF_DB.ipynb
 
 ## Acknowledgments
 
-*Thanks to the owners of the original databases for granting the publication of the raw reports within this repository. This allows the fully reprocibility of the Jupiter notebook.
+_Thanks to the owners of the original databases for granting the publication of the raw reports within this repository. This allows the fully reprocibility of the Jupiter notebook_.
