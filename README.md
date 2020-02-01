@@ -1,7 +1,7 @@
 # Merged Global Pluvial Floods DataBase (MGPF_DB)  
 
 
-## Project Description
+## Project Overview
 This project develops a Python tool that merges four flood databases into a single database that contains global reports only for pluvial floods (including flash floods) for the period April 2016 - March 2017. 
 
 This tool uses data wrangling methods to enhance the usability of each single database to answer the following research question: current global rainfall forecasts can be succesfully used as proxy variables to predict pluvial/flash floods? 
@@ -41,8 +41,11 @@ __*Code DOI - Zenodo Repository (Python code and Jupyter notebook)*__
 
 ### Prerequisites
 
-Python 3
-Metview-Python
+1. Anaconda Distribution (to get **Python3**, **Numpy**, **Pandas**, and **Matplotlib** to process the flood reports).  
+Information and download [here](https://www.anaconda.com/distribution/)     
+
+Metview-Python: (to plot the flood reports in the database)  
+Information and download [here](https://confluence.ecmwf.int/display/METV/Metview%27s+Python+Interface)   
 
 ### Installing
 
