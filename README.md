@@ -88,13 +88,19 @@ $ jupyter notebook MGPF_DB.ipynb
 
 ## Versioning
 
-[SemVer](http://semver.org/) is used for versioning. For the versions available, see the [releases](https://github.com/FatimaPillosu/Merged-Global-Flash-Flood-DB/releases) for this repository. 
+[SemVer](http://semver.org/) is used for versioning. For the versions available, see the [releases](https://github.com/FatimaPillosu/Merged_Global_Pluvial_Floods_DataBase/releases) for this repository. 
+
+
+
+<p>&nbsp;</p>
 
 ## Authors
 
-* **Fatima Pillosu** - [FatimaPillosu](https://github.com/FatimaPillosu)
+**Fatima Pillosu** - [Github](https://github.com/FatimaPillosu) - [Orcid](<div itemscope itemtype="https://schema.org/Person"><a itemprop="sameAs" content="https://orcid.org/0000-0001-8127-0990" href="https://orcid.org/0000-0001-8127-0990" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">https://orcid.org/0000-0001-8127-0990</a></div>) 
 
+
+<p>&nbsp;</p>
 
 ## Acknowledgments
 
-*Thanks to the owners of the raw reports to allow the publication of the data to allow the fully reprocibility of the Matlab toolbox and the Jupiter notebook.
+*Thanks to the owners of the original databases for granting the publication of the raw reports within this repository. This allows the fully reprocibility of the Jupiter notebook.
