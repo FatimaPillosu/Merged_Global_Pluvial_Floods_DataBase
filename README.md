@@ -52,15 +52,11 @@ Information and download about Metview-Python can be found [here](https://conflu
 1. **Install the right Anaconda Distribution for your OS.**   
 NOTE: You must install the version for Python3 because it is required to run Metview-Python.
 
-Check conda is installed:
+Check whether conda is installed correctly. You should see the following output:
 ```sh
 $ conda -V
+conda 4.7.12
 ```
-You should see the following output:
-```sh
-$ conda 4.7.12
-```
-
 
 2. **Create and 
 
