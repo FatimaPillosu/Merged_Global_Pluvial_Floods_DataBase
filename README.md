@@ -66,7 +66,7 @@ Update any packages if necessary by typing _"y"_ to proceed.
 
 2. **Create a virtual environment for the project**
 
-
+g
 
 
 
