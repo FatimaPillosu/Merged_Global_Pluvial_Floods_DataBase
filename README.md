@@ -29,7 +29,7 @@ __*Deploy Jupyter Notebook with MyBinder.org*__
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/FatimaPillosu/Test_JupyterNB_Bynder.git/master)     
 
 __*Data DOI - Zenodo Repository (input databases and MGPF_DB)*__  
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3479846.svg)](https://doi.org/10.5281/zenodo.3479846)
+[![DOI](https://zenodo.org/badge/DOI/10.5072/zenodo.487193.svg)](https://doi.org/10.5072/zenodo.487193)
 
 __*Code DOI - Zenodo Repository (Python code and Jupyter notebook)*__  
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3479846.svg)](https://doi.org/10.5281/zenodo.3479846)
