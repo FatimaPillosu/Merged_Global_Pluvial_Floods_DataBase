@@ -79,14 +79,11 @@ $ conda activate Metview-Python
 
 <p>&nbsp;</p>
 
-## Versioning
+## Versioning  
+MGPF uses the [SemVer](http://semver.org/) standard for its versioning. Have a look to the available versions [here](https://github.com/FatimaPillosu/Merged_Global_Pluvial_Floods_DataBase/releases). 
 
-MGPF uses the [SemVer](http://semver.org/) standard for its versioning. Have a look to the versions available [here](https://github.com/FatimaPillosu/Merged_Global_Pluvial_Floods_DataBase/releases). 
+## Authors  
+**Fatima Pillosu:** [Github](https://github.com/FatimaPillosu) - [Orcid](https://orcid.org/0000-0001-8127-0990) - [ResearchGate](https://www.researchgate.net/profile/Fatima_Pillosu)
 
-## Authors
-
-**Fatima Pillosu**, [Github](https://github.com/FatimaPillosu) - [Orcid](https://orcid.org/0000-0001-8127-0990) - [ResearchGate](https://www.researchgate.net/profile/Fatima_Pillosu)
-
-## Acknowledgments
-
+## Acknowledgments  
 _Thanks to the owners of the original databases for granting the publication of the raw reports within this repository. This allows the fully reprocibility of the Jupiter notebook_.
