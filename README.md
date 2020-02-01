@@ -45,7 +45,10 @@ __*Code DOI - Zenodo Repository (Python code and Jupyter notebook)*__
 Information about Anaconda Distribution and download can be found [here](https://www.anaconda.com/distribution/).     
 
 2. **Metview-Python** (to plot the flood reports in the database).  
-Information about Metview-Python can be found [here](https://confluence.ecmwf.int/display/METV/Metview%27s+Python+Interface).   
+Information about Metview-Python can be found [here](https://confluence.ecmwf.int/display/METV/Metview%27s+Python+Interface).
+
+3. **Zenodo_get** (to download records from Zenodo).
+Information about Zenodo_get can be found [here](https://zenodo.org/record/1261813#.XjWXhOGnw5k).
 
 ### Install the virtual environment to run the Jupyter Notebook
 
