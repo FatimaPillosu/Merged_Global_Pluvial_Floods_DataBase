@@ -8,6 +8,7 @@ This project develops a Python tool that merges four flood databases into a sing
 This tool uses data wrangling methods to enhance the usability of each single database to answer the following research question: current global rainfall forecasts can be succesfully used as proxy variables to predict pluvial/flash floods? 
   
 <p>&nbsp;</p>
+
 ## Repository Content
 The repository contains the Jupyter notebook that runs a Python code that selects and post-processes the flood reports in four different databases, and merges them into one single database for global pluvial/flash flood reports. It also runs the Metview-Python code to visualize flood reports.
 
@@ -35,6 +36,7 @@ __*Code DOI - Zenodo Repository (Python code and Jupyter notebook)*__
 
 
 <p>&nbsp;</p>
+
 ## Getting Started
 
 ### Prerequisites
