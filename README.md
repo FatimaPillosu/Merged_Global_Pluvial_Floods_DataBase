@@ -31,6 +31,9 @@ __*Deploy Jupyter Notebook with MyBinder.org*__
 __*Data DOI - Zenodo Repository (input databases and MGPF_DB)*__  
 [![DOI](https://sandbox.zenodo.org/badge/DOI/10.5072/zenodo.487193.svg)](https://doi.org/10.5072/zenodo.487193)
 
+.. image:: https://sandbox.zenodo.org/badge/DOI/10.5072/zenodo.487193.svg
+   :target: https://doi.org/10.5072/zenodo.487193
+
 __*Code DOI - Zenodo Repository (Python code and Jupyter notebook)*__  
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3479846.svg)](https://doi.org/10.5281/zenodo.3479846)
 
