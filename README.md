@@ -50,26 +50,21 @@ Information about Metview-Python can be found [here](https://confluence.ecmwf.in
 ### Install the virtual environment to run the Jupyter Notebook
 
 1. **Install Anaconda Distribution**   
-
-Follow the link provided in the "Prerequisites" section at point 1. Note that you must install the Anaconda version that runs Python3 as it is required by Metview-Python.
-
-Check whether conda is installed correctly (you should see the displayed output), and check whether conda is up to date (updating any packages if necessary by typing _"y"_ to proceed):
+Follow the link provided in the "Prerequisites" section at point 1. Note that you must install the Anaconda version that runs Python3 as it is required by Metview-Python. Check whether conda is installed correctly (you should see the displayed output), and check whether conda is up to date (updating any packages if necessary by typing _"y"_ to proceed):
 ```sh
 $ conda -V
 conda 4.7.12
 $ conda update conda
 ```
 
-2. **Download the repository**
-
+2. **Download the repository**  
 Type in the terminal the following commands:
 ```sh
 $ cd # goes to the user's /home
 $ git clone https://github.com/FatimaPillosu/Merged_Global_Pluvial_Floods_DataBase.git
 ```
 
-3. **Create and activate the virtual environment**
-
+3. **Create and activate the virtual environment**  
 These steps will install all the Python modules and the binaries  of Metview-Python needed to run the Jupiter notebook. In the terminal type the following commands:
 ```sh
 $ cd Merged_Global_Pluvial_Floods_DataBase
