@@ -50,6 +50,9 @@ Information about Metview-Python can be found [here](https://confluence.ecmwf.in
 3. **Zenodo_get** (to download records from Zenodo).  
 Information about Zenodo_get can be found [here](https://zenodo.org/record/1261813#.XjWXhOGnw5k).
 
+4. **Google Maps Geolocation API** (the Geolocation API converts an address into lat7lon coordinates).
+Information on how to get and enable a geolocation API can be found [here](https://developers.google.com/maps/gmp-get-started).
+
 ### Install the virtual environment to run the Jupyter Notebook
 
 1. **Install Anaconda Distribution**   
