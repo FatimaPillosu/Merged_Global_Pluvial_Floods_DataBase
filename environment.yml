@@ -5,9 +5,9 @@ dependencies:
   - metview-batch
   - pip
   - pip:
+    - zenodo-get
     - metview
     - numpy
     - pandas
     - matplotlib
-    - zenodo-get
-    
+    - googlemaps
